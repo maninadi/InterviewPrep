@@ -45,7 +45,7 @@ public class ShortestPath {
     		String input=br.readLine();
     		String[] s=input.split(" ");
     		for(int i=0;i<2;i++){
-    			bounds[i]=Integer.parseInt(s[i]);
+    			bounds[i]=Integer.parseInt(s[i]	);
     		}
     	}catch(Exception e){
     		

@@ -12,24 +12,19 @@ public class BricksGame {
         	int[] a=new int[N];
         	for(int j=0;j<N;j++)
         		a[j]=in.nextInt();
-        	System.out.println(findMaxScore(a,0,true));
+        	System.out.println(findMaxScore(a));
         }
         in.close();
     }
 
-	private static int findMaxScore(int[] a,int i,boolean myTurn) {
+	private static int findMaxScore(int[] a) {
 		
-		if(i>=a.length)
-			return 0;
-	
-		int k1=Integer.MIN_VALUE;
-		int k2=Integer.MIN_VALUE;
-		int k3=Integer.MIN_VALUE;
-		
-		k1=a[i]+findMaxScore(a,i+1,!myTurn);
-		if((i+1)<a.length) k2=k1+a[i+1]+findMaxScore(a,i+2,!myTurn);
-		if((i+2)<a.length) k3=k3+a[i+2]+findMaxScore(a,i+3,!myTurn);
-		
-		return myTurn?Math.max(k1, Math.max(k2, k3)):0;
+		int[] dp=new int[a.length+3];
+		int runningSum=0;
+		for(int i=a.length-1;i>=0;i--){
+			runningSum+=a[i];
+			dp[i]=runningSum-Math.min(Math.min(dp[i+1], dp[i+2]), dp[i+3]);
+		}
+		return dp[0];
 	}
 }

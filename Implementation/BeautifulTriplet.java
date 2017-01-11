@@ -31,9 +31,6 @@ public class BeautifulTriplet {
 				count++;
 			
 		}
-			
-		
-		
 		return count;
 	}
 }
