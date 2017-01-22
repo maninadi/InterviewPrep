@@ -13,9 +13,9 @@ public class GreatXOR {
         }
     }
 
-	private static int process(long x) {
-		int count=0;
-		int i=1;
+	private static long process(long x) {
+		long count=0;
+		long i=1;
 		
 		while(x>1){
 			if((x&1)==0){
