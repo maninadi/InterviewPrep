@@ -25,7 +25,8 @@ public class ZigZagString {
 	public static void main(String[] args){
 		
 		System.out.println(zigzag("PAYPALISHIRING",3));
-		System.out.println(zigzag("ABCD",2));
+		System.out.println(zigzag("ABCD",1));
+		System.out.println(zigzag("NX9AROO79WZSd",24));
 	}
 	
 	static String zigzag(String s,int rows){
@@ -47,14 +48,15 @@ public class ZigZagString {
 				flip=!flip;
 				
 			}
-			add=flip?1:-1;
+			add=rows!=1?(flip?1:-1):0;
 			i+=add;
 		}
 		
 		StringBuilder sb=new StringBuilder();
 		
 		for(String s1:strs){
-			sb.append(s1);
+			if(s1!=null)
+				sb.append(s1);
 		}
 				
 		return sb.toString();
