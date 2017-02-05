@@ -33,7 +33,7 @@ public class RemoveDuplicates {
 		a.add(4);
 		a.add(4);
 		
-		removeDuplicates(a);
+		removeDuplicates2(a);
 		for(int i:a)
 			System.out.print(i+" ");
 	}
@@ -55,6 +55,24 @@ public class RemoveDuplicates {
 	            b=k;
 	        }
 	        cnt++;
+	        i++;
+	    }
+	    a.subList(loc,a.size()).clear();
+	    return a.size();
+	}
+	
+	
+	static int removeDuplicates2(ArrayList<Integer> a){
+	    int loc=1;
+	    int i=1;
+	    int b=a.get(0);
+	    while(i<a.size()){
+	        int k=a.get(i);
+	        if(k!=b){
+	            a.set(loc,k);
+	            loc++;
+	            b=k;
+	        }
 	        i++;
 	    }
 	    a.subList(loc,a.size()).clear();
