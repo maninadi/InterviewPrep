@@ -11,8 +11,8 @@ public class IntToExcelColumn {
 		System.out.println(convertToTitle(1));
 		System.out.println(convertToTitle(11));
 		System.out.println(convertToTitle(111));
-		System.out.println(convertToTitle(27));
-		System.out.println(convertToTitle(26));
+		System.out.println(convertToTitle(649));
+		System.out.println(convertToTitle(703));
 		System.out.println(convertToTitle(98066));
 	}
 	
