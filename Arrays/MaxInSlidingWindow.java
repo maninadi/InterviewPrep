@@ -1,0 +1,64 @@
+package Arrays;
+
+import java.util.*;
+
+/*
+ * A long array A[] is given to you. There is a sliding window of size w which is moving from the very left of the array to the very right. You can only see the w numbers in the window. Each time the sliding window moves rightwards by one position.
+
+	Example :
+	
+	The array is [1 3 -1 -3 5 3 6 7], and w is 3.
+	
+	Window position	Max
+	 	 
+	[1 3 -1] -3 5 3 6 7	3
+	1 [3 -1 -3] 5 3 6 7	3
+	1 3 [-1 -3 5] 3 6 7	5
+	1 3 -1 [-3 5 3] 6 7	5
+	1 3 -1 -3 [5 3 6] 7	6
+	1 3 -1 -3 5 [3 6 7]	7
+	Input: A long array A[], and a window width w
+	Output: An array B[], B[i] is the maximum value of from A[i] to A[i+w-1]
+	Requirement: Find a good optimal way to get B[i]
+	
+	Note: If w > length of the array, return 1 element with the max of the array.
+ */
+
+public class MaxInSlidingWindow {
+
+	public static void main(String[] args){
+		
+		int[] arr={1, 3, -1, -3, 5, 3, 6, 7};
+		
+		for(int i:getMaxInSlidingWindow(arr, 3)){
+			System.out.format("%d ",i);
+		}
+	}
+	
+	
+	static int[] getMaxInSlidingWindow(int[] arr,int k){
+		
+		int[] res=new int[arr.length-k+1];
+		
+		Deque<Integer> dq=new LinkedList<Integer>();
+		
+		for(int i=0;i<arr.length;i++){
+		
+			while(!dq.isEmpty() && arr[i]>=arr[dq.peekLast()]){
+				dq.removeLast();
+			}
+			
+			dq.addLast(i);
+			
+			if(i-dq.peekFirst()+1>k){
+				dq.removeFirst();
+			}
+			if(i+1>=k){
+				res[i+1-k]=arr[dq.getFirst()];
+			}
+		}
+		
+		return res;
+	}
+	
+}
