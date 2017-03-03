@@ -106,7 +106,7 @@ class Cache {
         }
         else{
             
-            if(currLength==capacity){
+            if(currLength>=capacity){
                 remove(end);
             }
             CNode n=new CNode(key,value);
