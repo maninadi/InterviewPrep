@@ -3,7 +3,7 @@ package Arrays;
 public class MaxSumWithRotations {
 
 	public static void main(String[] args){
-		int arr[] = {1, 20, 2, 10};
+		int arr[] = {2,3,1};
 		System.out.println(maxSum(arr));
 	}
 	
